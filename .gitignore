@@ -1,0 +1,12 @@
+data/roads/**
+data/Takeout/**
+*.lock
+musa611_midterm.gdb/**
+Index/**
+ImportLog/**
+.backups/musa611_midterm.aprx
+data/takeout-20220327T224614Z-001.zip
+data/TIGERweb_Transportation.pitemx
+data/tl_2016_us_primaryroads.zip
+musa611_midterm.aprx
+musa611_midterm.tbx
