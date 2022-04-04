@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Story</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  
+  <!-- Sans Serif Pro font -->>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+  <div class="map" id="map"></div>
+
+  <div class="slide-section">
+    <div class="slide-controls">
+      <label for="jump-to-slide">Jump&nbsp;To:</label>
+      <select class="slide-nav-select" id="jump-to-slide"></select>
+    </div>
+    <div class="slide-title"></div>
+    <div class="slide-content"></div>
+    <div class="slide-controls">
+      <button class="slide-nav-button" id="prev-slide">⧏</button>
+      <button class="slide-nav-button" id="next-slide">⧐</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
+  <script src="js/slides.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
