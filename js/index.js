@@ -3,7 +3,8 @@
 
 const map = L.map('map').setView([0, 0], 0);
 const layerGroup = L.layerGroup().addTo(map);
-let lifeCollection = { features: [] };
+let tripCollection = { features: [] };
+let stopCollection = { features: [] };
 
 L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg', {
   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
@@ -62,17 +63,17 @@ function updateMap(collection) {
 function makeEraCollection(era) {
   return {
     type: 'FeatureCollection',
-    features: lifeCollection.features.filter((f) => f.properties.era === era),
+    features: lifeCollection.features.filter((f) => f.properties.Era === era),
   };
 }
 
-function showSlide(slide) {
+function showSlide(slide, TripNum) {
   const converter = new showdown.Converter({ smartIndentationFix: true });
 
-  slideTitleDiv.innerHTML = `<h2>${slide.title}</h2>`;
+  slideTitleDiv.innerHTML = `<h2>${slide.EraName}</h2><br></br><h2>${slide.TripName}</h2>`;
   slideContentDiv.innerHTML = converter.makeHtml(slide.content);
 
-  const collection = slide.era ? makeEraCollection(slide.era) : lifeCollection;
+  const collection = slide.Era ? makeEraCollection(slide.Era) : lifeCollection;
   const layer = updateMap(collection);
 
   function handleFlyEnd() {
@@ -88,28 +89,30 @@ function showSlide(slide) {
   map.addEventListener('moveend', handleFlyEnd);
   if (slide.bounds) {
     map.flyToBounds(slide.bounds);
-  } else if (slide.era) {
+  } else if (slide.Era) {
     map.flyToBounds(layer.getBounds());
   }
 }
 
 function showCurrentSlide() {
   const slide = slides[currentSlideIndex];
-  showSlide(slide);
+  showSlide(slide, currentSlideIndex + 1);
 }
 
 function goNextSlide() {
-  currentSlideIndex++;
+  currentSlideIndex += 1;
 
   if (currentSlideIndex === slides.length) {
     currentSlideIndex = 0;
   }
 
+  currentTrip = currentSlideIndex + 1;
+
   showCurrentSlide();
 }
 
 function goPrevSlide() {
-  currentSlideIndex--;
+  currentSlideIndex -= 1;
 
   if (currentSlideIndex < 0) {
     currentSlideIndex = slides.length - 1;
