@@ -3,6 +3,7 @@
 
 const map = L.map('map').setView([0, 0], 0);
 const layerGroup = L.layerGroup().addTo(map);
+const apiHost = 'http://localhost:3000';
 
 // trip routes as lines
 let tripCollection = { features: [] };
@@ -10,8 +11,6 @@ let tripCollection = { features: [] };
 let stopCollection = { features: [] };
 
 let currentSlideIndex = 0;
-
-const imageLocation = '';
 
 // MAPBOX TILES
 // STYLE IS LIGHT GREY WITH SOME CUSTOM NEIGHBORHOOD LABELS
@@ -21,8 +20,6 @@ const mbStyle = 'cl33po8r6000115ofophf8n7d';
 L.tileLayer(`https://api.mapbox.com/styles/v1/${mbID}/${mbStyle}/tiles/256/{z}/{x}/{y}?access_token=${mbAccessToken}`, {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
-
-
 
 // 1. SLIDES
 // CREATE SLIDES
@@ -129,6 +126,19 @@ const getLogo = (importance) => {
   }
   return logo;
 };
+const getDate = (dateInt) => {
+  const dateType = new Date(dateInt).toDateString();
+  return `${dateType}`;
+};
+const getImageLink = () => `"${apiHost}/pictures/${imageName}.jpg"`;
+function getTooltip(properties) {
+  imageName = properties.ImageName;
+  imageLink = getImageLink(imageName);
+  imageItem = `<img src=${imageLink} alt="${imageName}" style="width:128px;">`;
+  nameCity = `<h3>${properties.CityName}</h3>`;
+  dateString = `<h4>${getDate(properties.Stop_Date)}<h4>`;
+  return nameCity + dateString + imageItem;
+}
 function updateMap(sCollection, tCollection) {
   layerGroup.clearLayers();
   const stopLayer = L.geoJSON(sCollection, {
@@ -138,7 +148,7 @@ function updateMap(sCollection, tCollection) {
     }),
     // onEachFeature: onEachFeature,
   })
-    .bindTooltip((l) => `<h3>${l.feature.properties.CityName}</h3>`)
+    .bindTooltip((l) => getTooltip(l.feature.properties))
     .addTo(layerGroup);
   showTripData(tCollection)
     .addTo(layerGroup);
@@ -198,6 +208,8 @@ function slideTitle(slide) {
 
 function initSlideSelect() {
   slideJumpSelect.innerHTML = '';
+  showCurrentSlide();
+  // eslint-disable-next-line no-restricted-syntax
   for (const [index, slide] of slides.entries()) {
     const option = document.createElement('option');
     option.value = index;

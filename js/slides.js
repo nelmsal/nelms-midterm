@@ -59,7 +59,9 @@ const slides = [
       ],
     ],
     EraName: 'Pacific Northwest',
-    content: '',
+    content: `
+    On the first leg of the trip, we drove around 13 hours straight to get to Seattle. The beautiful forrests of Oregon made it well worth it. We ended the trip at Dick's Hamburgers in Fremont, Seattle (where they put tartar sauce on the burgers)
+  `,
   },
   {
     Trip: 4,
@@ -78,7 +80,9 @@ const slides = [
       ],
     ],
     EraName: 'Pacific Northwest',
-    content: '',
+    content:  `
+    On one of my favorite parts of the trip. We took a ferry through the nearby islands of Seattle.
+  `,
   },
   {
     Trip: 5,
@@ -97,7 +101,9 @@ const slides = [
       ],
     ],
     EraName: 'Pacific Northwest',
-    content: '',
+    content:  `
+    Our drive down from Seattle had us detour through Portland and Bend. A highlight was ending up at the LAST Blockbuster video store.
+  `,
   },
   {
     Trip: 6,
@@ -116,7 +122,9 @@ const slides = [
       ],
     ],
     EraName: 'Cross Country',
-    content: '',
+    content:  `
+    We started our perilous trip moving to Philly. On this day, we had to drive through the traffic of LA and rainstorms of Arizona. A highlight was a 20 foot long hot dog roller with about 50 hot dogs constaintly rolling
+  `,
   },
   {
     Trip: 7,
@@ -135,7 +143,9 @@ const slides = [
       ],
     ],
     EraName: 'Cross Country',
-    content: '',
+    content:  `
+    Once in Phoenix, we could visit my family at I-Hop and float down the Salt River
+  `,
   },
   {
     Trip: 8,
@@ -154,7 +164,9 @@ const slides = [
       ],
     ],
     EraName: 'Cross Country',
-    content: '',
+    content:  `
+    After leaving my family in the godforesaken state of Arizona, we rain into more thunderstorms in New Mexico and Northern Texas. Alot of beautiful mesas and truck stops. Our shady Amarillo motel was perfect to eat Raising Canes & watch HGTV
+  `,
   },
   {
     Trip: 9,
@@ -173,7 +185,9 @@ const slides = [
       ],
     ],
     EraName: 'Cross Country',
-    content: '',
+    content:  `
+    On the first leg of the trip, we drove around 13 hours straight to get to Seattle. The beautiful forrests of Oregon made it well worth it. We ended the trip at Dick's Hamburgers in Fremont, Seattle (where they put tartar sauce on the burgers)
+  `,
   },
   {
     Trip: 10,
