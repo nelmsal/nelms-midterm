@@ -17,7 +17,9 @@ const slides = [
       ],
     ],
     EraName: 'Southern California',
-    content: '',
+    content: `
+    Drove to Redondo Beach to see Madi's family. Then drove through Lancaster to see Alex's family.
+  `,
   },
   {
     Trip: 2,
@@ -36,7 +38,9 @@ const slides = [
       ],
     ],
     EraName: 'Sacramento',
-    content: '',
+    content: `
+    Tried to see a flower bloom at folsom lake but . . . we were a week late. The weeds looked nice.
+  `,
   },
   {
     Trip: 3,

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"jupyter.jupyterServerType": "remote",
+		"terminal.integrated.cwd": "C:\\Users\\nelms\\Documents\\Penn\\MUSA-611",
+		"files.eol": "\n",
+		"editor.formatOnSave": true
+	}
+}
